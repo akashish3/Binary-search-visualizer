@@ -1,51 +1,109 @@
 html,body{
     margin: 0;
-    padding: auto;
+    padding: 0; /* fixed 'auto' */
     height: 100%;
-    
-    
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #111, #222, #333);
+    color: #fff;
 }
+
 header{
     text-align: center;
-    background-image: linear-gradient(to right,#111,red,yellow,pink);
+    font-size: 2.5rem;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #111, red, yellow, pink, cyan);
     color: transparent;
+    -webkit-background-clip: text;
     background-clip: text;
+    animation: gradientShift 5s infinite alternate;
+}
+
+/* Gradient animation for header */
+@keyframes gradientShift {
+    from { background-position: left; }
+    to { background-position: right; }
 }
 
 .container{
     background-color: #f4f4f4;
     height: 100vh;
-    /* max-width: 500px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
- .box{
-    background-color: #111;
+.box{
+    background: linear-gradient(145deg, #111, #222);
     padding: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     row-gap: 20px;
-    border:2px solid#fff ;
+    border: 2px solid #fff;
     border-radius: 20px;
-    margin-left: 200px;
-    margin-right: 200px;
+    margin: 0 200px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.box:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(255,0,150,0.6);
+}
+
 input,button{
     padding: 10px;
     margin: 5px;
     border-radius: 10px;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
 }
+
+input:focus{
+    box-shadow: 0 0 10px #ff4081;
+}
+
+button{
+    background: linear-gradient(45deg, #ff4081, #ffeb3b);
+    color: #111;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover{
+    background: linear-gradient(45deg, #00e5ff, #ff4081);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
 .visualizer{
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
+
 .bar{
     width: 40px;
     height: 50px;
     margin: 5px;
     text-align: center;
     line-height: 50px;
-    background-color: #99afd9;
+    background: linear-gradient(180deg, #99afd9, #4a90e2);
+    border-radius: 8px;
+    animation: bounce 1s infinite alternate, colorShift 3s infinite alternate;
+}
+
+/* Bar bounce animation */
+@keyframes bounce {
+    from { transform: scaleY(0.5); }
+    to { transform: scaleY(1.5); }
+}
+
+/* Color shifting animation */
+@keyframes colorShift {
+    0% { background: linear-gradient(180deg, #99afd9, #4a90e2); }
+    50% { background: linear-gradient(180deg, #ff4081, #ffeb3b); }
+    100% { background: linear-gradient(180deg, #00e5ff, #76ff03); }
 }
