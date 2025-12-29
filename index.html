@@ -13,14 +13,25 @@
     <main>
         <div class="controls">
             <div class="box">
-                <input type="text" id="arrayInput" placeholder="Enter sorted Array:">
+                <!-- Input fields -->
+                <input type="text" id="arrayInput" placeholder="Enter sorted Array (comma-separated)">
                 <input type="number" id="targetInput" placeholder="Enter target number">
-                <button onclick="initSearch()">Start Search</button>
+
+                <!-- Auto Mode Controls -->
+                <button onclick="initSearch(); startSearch()">Start Search (Auto Mode)</button>
+                <button id="pauseBtn">Pause</button>
+
+                <!-- Step Mode Controls -->
+                <button onclick="initSearch()">Initialize (Step Mode)</button>
                 <button id="nextBtn">Next Step</button>
                 <button id="resetBtn">Reset</button>
             </div>
         </div>
+
+        <!-- Visualizer -->
         <div class="visualizer" id="visualizer"></div>
+
+        <!-- Result Display -->
         <div id="result"></div>
     </main>
     <script src="script.js"></script>
